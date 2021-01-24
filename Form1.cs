@@ -14,11 +14,7 @@ using System.Drawing.Imaging;
 namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
-    {
-        static Color SetTransparency(int A, Color color)
-        {
-            return Color.FromArgb(A, color.R, color.G, color.B);
-        }
+    { 
         public Form1()
         {
             InitializeComponent();
