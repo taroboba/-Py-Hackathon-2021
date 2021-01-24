@@ -48,12 +48,40 @@ namespace WindowsFormsApp1
             else if (zip == 10) { pictureBox11.Visible = true; }
             else if (zip == 11) { pictureBox12.Visible = true; }
         }
+        public Bitmap chColor(Bitmap im,Color to)
+        {
+            Color[,] ar10301 = new Color[im.Width, im.Height];
+            for (int i = 0; i < im.Width; i++)
+            {
+                for (int j = 0; j < im.Height; j++)
+                {
+                    ar10301[i, j] = im.GetPixel(i, j);
+                    if (ar10301[i, j].R != 0) { im.SetPixel(i, j, to); }
+                }
+            }
+            return im;
+        }
         public Form1()
         {
             InitializeComponent();
             int index2 = 0;
             string remoteUri = "https://raw.githubusercontent.com/nychealth/coronavirus-data/master/latest/last7days-by-modzcta.csv";
             string fileName = "content.txt", myStringWebResource = null;
+            Bitmap im10301 = new Bitmap("Im\\10301.png");
+            Bitmap im10302 = new Bitmap("Im\\10302.png");
+            Bitmap im10303 = new Bitmap("Im\\10303.png");
+            Bitmap im10304 = new Bitmap("Im\\10304.png");
+            Bitmap im10305 = new Bitmap("Im\\10305.png");
+            Bitmap im10306 = new Bitmap("Im\\10306.png");
+            Bitmap im10307 = new Bitmap("Im\\10307.png");
+            Bitmap im10308 = new Bitmap("Im\\10308.png");
+            Bitmap im10309 = new Bitmap("Im\\10309.png");
+            Bitmap im10310 = new Bitmap("Im\\10310.png");
+            Bitmap im10312 = new Bitmap("Im\\10312.png");
+            Bitmap im10314 = new Bitmap("Im\\10314.png");
+            im10301 = chColor(im10301, Color.Red);
+            pictureBox1.BackgroundImage = im10301;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             WebClient myWebClient = new WebClient();
             myStringWebResource = remoteUri + fileName;
             //Console.WriteLine("Downloading File \"{0}\" from \"{1}\" .......\n\n", fileName, myStringWebResource);
