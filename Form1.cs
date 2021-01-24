@@ -99,7 +99,7 @@ namespace WindowsFormsApp1
                     index = 0;
                 }
             }
-            textBox1.Text = data[zip,0] +", " data[zip, 1] + ", " + data[zip, 5] + " cases.";
+            textBox1.Text = data[zip,0] + ", " + data[zip, 1] + ", " + data[zip, 5] + " cases.";
             button1.Click += new EventHandler(this.mvLt);
             button2.Click += new EventHandler(this.mvRt);
         }
