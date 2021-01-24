@@ -132,9 +132,10 @@ namespace WindowsFormsApp1
             {
                 Color color=Color.White;
                 int cases = Int32.Parse(data[ind, 4]);
-                if ( cases < 100) { color = Color.Yellow; }
-                else if (cases < 200) { color = Color.Orange; }
-                else if (cases >= 200) { color = Color.Red; }
+                if ( cases < 100) { color = Color.GreenYellow; }
+                else if (cases < 200) { color = Color.Yellow; }
+                else if (cases < 300) { color = Color.Orange; }
+                else if (cases >= 300) { color = Color.Red; }
                 images[ind] = chColor(images[ind], color);
             }
             pictureBox1.BackgroundImage = images[0];
@@ -184,6 +185,11 @@ namespace WindowsFormsApp1
             textBox1.Text = data[zip, 0] + ", " + data[zip, 1] + ", " + data[zip, 4] + " cases between " + data[zip, 7];
         }
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
