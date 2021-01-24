@@ -67,21 +67,22 @@ namespace WindowsFormsApp1
             int index2 = 0;
             string remoteUri = "https://raw.githubusercontent.com/nychealth/coronavirus-data/master/latest/last7days-by-modzcta.csv";
             string fileName = "content.txt", myStringWebResource = null;
-            Bitmap im10301 = new Bitmap("Im\\10301.png");
-            Bitmap im10302 = new Bitmap("Im\\10302.png");
-            Bitmap im10303 = new Bitmap("Im\\10303.png");
-            Bitmap im10304 = new Bitmap("Im\\10304.png");
-            Bitmap im10305 = new Bitmap("Im\\10305.png");
-            Bitmap im10306 = new Bitmap("Im\\10306.png");
-            Bitmap im10307 = new Bitmap("Im\\10307.png");
-            Bitmap im10308 = new Bitmap("Im\\10308.png");
-            Bitmap im10309 = new Bitmap("Im\\10309.png");
-            Bitmap im10310 = new Bitmap("Im\\10310.png");
-            Bitmap im10312 = new Bitmap("Im\\10312.png");
-            Bitmap im10314 = new Bitmap("Im\\10314.png");
-            im10301 = chColor(im10301, Color.Red);
-            pictureBox1.BackgroundImage = im10301;
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            Bitmap[] images = new Bitmap[12];
+            images[0] = new Bitmap("Im\\10301.png");
+            images[1] = new Bitmap("Im\\10302.png");
+            images[2] = new Bitmap("Im\\10303.png");
+            images[3] = new Bitmap("Im\\10304.png");
+            images[4] = new Bitmap("Im\\10305.png");
+            images[5] = new Bitmap("Im\\10306.png");
+            images[6] = new Bitmap("Im\\10307.png");
+            images[7] = new Bitmap("Im\\10308.png");
+            images[8] = new Bitmap("Im\\10309.png");
+            images[9] = new Bitmap("Im\\10310.png");
+            images[10] = new Bitmap("Im\\10312.png");
+            images[11] = new Bitmap("Im\\10314.png");
+            //images[0] = chColor(images[0], Color.Red);
+            //pictureBox1.BackgroundImage = images[0];
+            //pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             WebClient myWebClient = new WebClient();
             myStringWebResource = remoteUri + fileName;
             //Console.WriteLine("Downloading File \"{0}\" from \"{1}\" .......\n\n", fileName, myStringWebResource);
@@ -127,6 +128,39 @@ namespace WindowsFormsApp1
                     index = 0;
                 }
             }
+            for(int ind = 0; ind < 12; ind++)//apply colors to images
+            {
+                Color color=Color.White;
+                int cases = Int32.Parse(data[ind, 4]);
+                if ( cases < 100) { color = Color.Yellow; }
+                else if (cases < 200) { color = Color.Orange; }
+                else if (cases >= 200) { color = Color.Red; }
+                images[ind] = chColor(images[ind], color);
+            }
+            pictureBox1.BackgroundImage = images[0];
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.BackgroundImage = images[1];
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.BackgroundImage = images[2];
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.BackgroundImage = images[3];
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.BackgroundImage = images[4];
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.BackgroundImage = images[5];
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox7.BackgroundImage = images[6];
+            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox8.BackgroundImage = images[7];
+            pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.BackgroundImage = images[8];
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox10.BackgroundImage = images[9];
+            pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox11.BackgroundImage = images[10];
+            pictureBox11.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox12.BackgroundImage = images[11];
+            pictureBox12.SizeMode = PictureBoxSizeMode.StretchImage;
             textBox1.Text = data[zip,0] + ", " + data[zip, 1] + ", " + data[zip, 4] + " cases between " + data[zip,7];
             button1.Click += new EventHandler(this.mvLt);
             button2.Click += new EventHandler(this.mvRt);
