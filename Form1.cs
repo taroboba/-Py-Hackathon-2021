@@ -99,7 +99,7 @@ namespace WindowsFormsApp1
                     index = 0;
                 }
             }
-            textBox1.Text = data[zip,0] + ", " + data[zip, 1] + ", " + data[zip, 5] + " cases.";
+            textBox1.Text = data[zip,0] + ", " + data[zip, 1] + ", " + data[zip, 4] + " cases between " + data[zip,7];
             button1.Click += new EventHandler(this.mvLt);
             button2.Click += new EventHandler(this.mvRt);
         }
@@ -110,7 +110,7 @@ namespace WindowsFormsApp1
             zip -= 1;
             if (zip < 0) { zip = 11; }
             imOn();
-            textBox1.Text = data[zip, 1] + ", " + data[zip, 5] + " cases.";
+            textBox1.Text = data[zip, 0] + ", " + data[zip, 1] + ", " + data[zip, 4] + " cases between " + data[zip, 7];
         }
         void mvRt(Object sender,
                        EventArgs e)
@@ -119,7 +119,7 @@ namespace WindowsFormsApp1
             zip += 1;
             if (zip > 11) { zip = 0; }
             imOn();
-            textBox1.Text = data[zip, 1] + ", " + data[zip, 5] + " cases.";
+            textBox1.Text = data[zip, 0] + ", " + data[zip, 1] + ", " + data[zip, 4] + " cases between " + data[zip, 7];
         }
         private void Form1_Load(object sender, EventArgs e)
         {
